@@ -1,0 +1,19 @@
+﻿<div class="grid-item">
+	<div class="grid-description">
+		<div class="grid-header-footer">@Item.Name</div>
+		<div class="grid-image-container">
+			<img class="grid-image" src="@Item.Image" alt="@Item.Name" />
+		</div>
+		<div class="grid-header-footer">£ @Item.Price</div>
+	</div>
+	<div>
+		<span>
+			<label for="quantity">Quantity:</label>
+			<input type="number" id="quantity" name="quantity" step="1" style="width: 4rem" @bind-value="@_quantity">
+		</span>
+		<span style="float: right">
+			<button type="button" onclick="@AddToBasket">Add to basket</button>
+		</span>
+	</div>
+
+</div>

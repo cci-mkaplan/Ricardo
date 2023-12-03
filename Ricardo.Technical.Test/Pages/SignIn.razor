@@ -1,0 +1,8 @@
+﻿@page "/signin"
+<h3>Sign In</h3>
+
+<div>
+	<input type="text" placeholder="Enter your username" @bind-value="@_username" />
+	<input type="password" placeholder="Enter your password" @bind-value="@_password" />
+	<button type="submit" onclick="@Submit">Submit</button>
+</div>

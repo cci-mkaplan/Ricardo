@@ -1,0 +1,19 @@
+﻿
+<div class="menu-widget-dropdown">
+	<div class="menu-widget">
+		<Icon Name="IconName.PersonBadge" Size="IconSize.x2" />
+	</div>
+	<div class="menu-widget-dropdown-content">
+		@if (SessionManager.Customer == default!)
+		{
+			<button class="widget-button" type="button" onclick="@NavigateToSignIn">Sign In</button>
+		}
+		else
+		{
+			<div>
+				<span>Signed in as @SessionManager.Customer.Name</span>
+			</div>
+		}
+	</div>
+	
+</div>

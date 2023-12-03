@@ -1,0 +1,7 @@
+﻿@using Ricardo.Technical.Test.Pages.Components
+@page "/basket"
+<h3>Basket</h3>
+<BasketItems></BasketItems>
+<div>
+	<button disabled="@(Basket.Items.Count < 1)" type="button" onclick="@Checkout">Checkout</button>
+</div>

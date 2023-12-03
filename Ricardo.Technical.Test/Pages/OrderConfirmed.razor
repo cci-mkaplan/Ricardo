@@ -1,0 +1,16 @@
+﻿@page "/orderConfirmed"
+@using Ricardo.Technical.Test.Utility
+@inject Navigation NavManager
+<h3>Order Confirmed!</h3>
+<div class="main-content">Your order will be with you shortly.</div>
+<div>
+	<button type="button" onclick="@BackToBrowse">Back to shop</button>
+</div>
+
+@code
+{
+	public void BackToBrowse()
+	{
+		NavManager.NavigateTo("/browse");
+	}
+}

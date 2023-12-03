@@ -1,0 +1,18 @@
+﻿<div class="grid-container">
+	@foreach (var item in Basket.Items)
+	{
+		<div class="grid-item">
+			<div class="grid-description">
+				<div class="grid-header-footer">@item.Item.Name</div>
+				<div class="grid-image-container">
+					<img class="grid-image" src="@item.Item.Image" alt="@item.Item.Name" />
+				</div>
+				<div class="grid-header-footer">£ @item.Item.Price</div>
+			</div>
+			<div>
+				<span>Quantity: @item.Quantity</span>
+				<span>Total: £@item.Total</span>
+			</div>
+		</div>
+	}
+</div>

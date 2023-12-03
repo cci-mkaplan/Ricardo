@@ -1,0 +1,9 @@
+﻿@using Ricardo.Technical.Test.Pages.Components
+@page "/browse"
+<h3>Browse</h3>
+
+<div class="main-content">Greetings! Check out some of our goods below!</div>
+
+<Products OnItemAdded="ItemAdded" Goods="@_stock"></Products>
+
+<Toasts class="p-3" Messages="@_messages" AutoHide="true" Delay="2000" Placement="ToastsPlacement.BottomRight" />
