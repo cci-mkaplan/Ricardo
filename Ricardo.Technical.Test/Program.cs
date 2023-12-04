@@ -7,11 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddBlazorBootstrap();
-builder.Services.AddScoped<Inventory>();
+builder.Services.AddSingleton<Inventory>();
 builder.Services.AddScoped<Navigation>();
 builder.Services.AddScoped<CustomerRepository>();
 builder.Services.AddScoped<CustomerService>();
 builder.Services.AddScoped<SessionManager>();
+builder.Services.AddScoped<Basket>();
 builder.Services.AddScoped(sp =>
 	new HttpClient
 	{

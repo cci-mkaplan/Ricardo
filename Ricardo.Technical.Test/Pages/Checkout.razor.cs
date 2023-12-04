@@ -10,7 +10,9 @@ namespace Ricardo.Technical.Test.Pages
 		[Inject] private SessionManager SessionManager { get; set; } = default!;
 		[CascadingParameter] private Basket Basket { get; set; } = default!;
 
-		public void PlaceOrder()
+        [Inject] private Inventory Inventory { get; set; } = default!;
+
+        public void PlaceOrder()
 		{
 			var customer = SessionManager.Customer;
 			if (customer == default!)
@@ -19,10 +21,20 @@ namespace Ricardo.Technical.Test.Pages
 				return;
 			}
 
+			//should be transactional
 			var order = Order.Create(Basket);
+           
+            var stocks = Order.GetStockByBasket(Basket);
+			foreach (var stock in stocks)
+			{
+				Inventory.RemoveFromStock(stock);
+			}
+            customer.Pay(order);
 
-			customer.Pay(order);
-			NavManager.NavigateTo("/orderConfirmed");
+			Basket.EmptyBasket();
+            //should be transactional
+
+            NavManager.NavigateTo("/orderConfirmed");
 		
 		}
 

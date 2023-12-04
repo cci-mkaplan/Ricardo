@@ -1,8 +1,11 @@
-﻿namespace Ricardo.Technical.Test.Data
+﻿using BlazorBootstrap;
+
+namespace Ricardo.Technical.Test.Data
 {
     public class Inventory
     {
         private readonly List<Stock> _goods = new();
+        private readonly List<ToastMessage> _messages = new();
 
         public Inventory()
         {
@@ -16,11 +19,27 @@
         {
             return _goods;
         }
+
+        public void RemoveFromStock(Stock stock)
+        {
+            var itemId = stock?.Item?.Id;
+            var stk = _goods.FirstOrDefault(p => p.Item?.Id == stock?.Item?.Id);
+            var newStockAmount = stk?.Amount - stock?.Amount;
+            if (newStockAmount < 0)
+                _messages.Add(new ToastMessage(ToastType.Danger, $"Stock can not be less then zero"));
+            stk.Amount = newStockAmount;
+        }
+
+
+        public void AddToStock(Stock stock)
+        {
+            _goods.Add(stock);
+        }
     }
 
     public class Stock
     {
-        public Item? Item { get; set; }
-        public int Amount { get; set; }
+        public Item? Item { get;  set; }
+        public int? Amount { get;  set; }
     }
 }
