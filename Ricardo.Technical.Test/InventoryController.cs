@@ -11,7 +11,8 @@ namespace Ricardo.Technical.Test
 		{
 			_inventory = inventory;
 		}
-		[HttpGet("GetItems")]
+
+		[HttpGet("Stock")]
 		public IActionResult Get()
 		{
 			return Ok(_inventory.AllStock());

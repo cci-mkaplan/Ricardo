@@ -6,7 +6,7 @@
         public Stock Stock { get; }
         public Item Item { get; }
         public int Quantity { get; private set; }
-		public int Total => Stock.Item.Price * Quantity;
+		public int Total => Item.Price * Quantity;
 		protected OrderItem(Stock stock, int quantity)//, Inventory inventory)
 		{
 			Item = stock.Item;
