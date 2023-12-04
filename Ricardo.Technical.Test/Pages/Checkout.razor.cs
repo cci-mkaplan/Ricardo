@@ -32,6 +32,7 @@ namespace Ricardo.Technical.Test.Pages
             customer.Pay(order);
 
 			Basket.EmptyBasket();
+            customer.AddToOrderHistory(order);
             //should be transactional
 
             NavManager.NavigateTo("/orderConfirmed");
