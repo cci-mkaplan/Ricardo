@@ -14,6 +14,11 @@ namespace Ricardo.Technical.Test.Data
             else
                 existing.AddMore(orderItem.Quantity);
         }
+
+        public void RemoveFromBasket(OrderItem orderItem)
+        {
+           _items.Remove(orderItem);
+        }
         public void EmptyBasket()
         {
             _items.Clear();

@@ -13,6 +13,9 @@
 				<span>Quantity: @item.Quantity</span>
 				<span>Total: £@item.Total</span>
 			</div>
+			<span style="float: right">
+				<button type="button" @onclick="@(e => RemoveFromBasket(item))">Remove From Basket</button>
+			</span>
 		</div>
 	}
 </div>
