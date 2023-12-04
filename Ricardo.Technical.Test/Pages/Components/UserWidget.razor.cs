@@ -20,6 +20,12 @@ namespace Ricardo.Technical.Test.Pages.Components
 			NavManager.NavigateTo("/signin");
 		}
 
+		public void SignOut()
+		{
+			SessionManager.SignOut();
+			NavManager.NavigateTo("/signedOut");
+		}
+
 		public void Dispose()
 		{
 			SessionManager.OnSignIn -= StateHasChanged;

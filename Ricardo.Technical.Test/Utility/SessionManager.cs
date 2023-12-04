@@ -13,6 +13,12 @@ namespace Ricardo.Technical.Test.Utility
 			NotifyStateChanged();
 		}
 
+		public void SignOut()
+		{
+			Customer = null;
+			NotifyStateChanged();
+		}
+
 		private void NotifyStateChanged() => OnSignIn?.Invoke();
 	}
 }
