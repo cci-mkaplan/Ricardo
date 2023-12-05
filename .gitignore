@@ -7,3 +7,5 @@
 /Ricardo.Technical.Test/obj
 /Ricardo.Application.Test/obj
 /Ricardo.Application.Test/bin
+/Ricardo.Technical.IntegrationTest/obj
+/Ricardo.Technical.IntegrationTest/bin/Debug/net7.0
