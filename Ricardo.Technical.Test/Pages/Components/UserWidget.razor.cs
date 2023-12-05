@@ -7,7 +7,7 @@ namespace Ricardo.Technical.Test.Pages.Components
 	public partial class UserWidget : IDisposable
 	{
 		[Inject] private INavigation NavManager { get; set; } = default!;
-		[Inject] private SessionManager SessionManager { get; set; } = default!;
+		[Inject] private ISessionManager SessionManager { get; set; } = default!;
 
 		protected override void OnInitialized()
 		{

@@ -11,7 +11,7 @@ builder.Services.AddSingleton<Inventory>();
 builder.Services.AddScoped<INavigation,Navigation>();
 builder.Services.AddScoped<CustomerRepository>();
 builder.Services.AddScoped<CustomerService>();
-builder.Services.AddScoped<SessionManager>();
+builder.Services.AddScoped<ISessionManager,SessionManager>();
 builder.Services.AddScoped<Basket>();
 builder.Services.AddScoped(sp =>
 	new HttpClient

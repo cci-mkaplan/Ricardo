@@ -2,23 +2,23 @@
 
 namespace Ricardo.Technical.Test.Utility
 {
-	public class SessionManager
-	{
-		public Customer? Customer { get; private set; }
+    public class SessionManager : ISessionManager
+    {
+        public Customer? Customer { get; private set; }
 
-		public event Action? OnSignIn;
-		public void SignedIn(Customer customer)
-		{
-			Customer = customer;
-			NotifyStateChanged();
-		}
+        public event Action? OnSignIn;
+        public void SignedIn(Customer customer)
+        {
+            Customer = customer;
+            NotifyStateChanged();
+        }
 
-		public void SignOut()
-		{
-			Customer = null;
-			NotifyStateChanged();
-		}
+        public void SignOut()
+        {
+            Customer = null;
+            NotifyStateChanged();
+        }
 
-		private void NotifyStateChanged() => OnSignIn?.Invoke();
-	}
+        private void NotifyStateChanged() => OnSignIn?.Invoke();
+    }
 }

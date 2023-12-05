@@ -5,9 +5,9 @@ namespace Ricardo.Technical.Test.Data
 	public class CustomerService
 	{
 		private readonly CustomerRepository _repository;
-		private readonly SessionManager _sessionManager;
+		private readonly ISessionManager _sessionManager;
 
-		public CustomerService(CustomerRepository repository, SessionManager sessionManager)
+		public CustomerService(CustomerRepository repository, ISessionManager sessionManager)
 		{
 			_repository = repository;
 			_sessionManager = sessionManager;

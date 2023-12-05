@@ -9,8 +9,8 @@ namespace Ricardo.Technical.Test.Pages
 	public partial class Checkout
 	{
 		[Inject] private INavigation NavManager { get; set; } = default!;
-		[Inject] private SessionManager SessionManager { get; set; } = default!;
-		[CascadingParameter] private Basket Basket { get; set; } = default!;
+		[Inject] private ISessionManager SessionManager { get; set; } = default!;
+		[CascadingParameter] public Basket Basket { get; set; } = default!;
 
         private object thisLock = new();
 

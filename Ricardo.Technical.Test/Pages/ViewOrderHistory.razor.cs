@@ -8,7 +8,7 @@ namespace Ricardo.Technical.Test.Pages
 	{
 		[Inject] private INavigation NavManager { get; set; } = default!;
 
-		[Inject] private  SessionManager? SessionManager { get; set; }= default!;
+		[Inject] private  ISessionManager? SessionManager { get; set; }= default!;
 
 		public Customer Customer => SessionManager.Customer;
     }
