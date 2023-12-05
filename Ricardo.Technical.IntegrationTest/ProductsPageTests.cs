@@ -9,10 +9,6 @@ using Ricardo.Technical.Test.Utility;
 
 namespace Ricardo.Technical.IntegrationTest;
 
-/// <summary>
-/// These tests are written entirely in C#.
-/// Learn more at https://bunit.dev/docs/getting-started/writing-tests.html#creating-basic-tests-in-cs-files
-/// </summary>
 public class ProductsPageTests : TestContext
 {
     private Inventory? Inventory { get; set; }
