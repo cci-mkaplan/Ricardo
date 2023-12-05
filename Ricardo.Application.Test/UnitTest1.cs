@@ -1,10 +1,16 @@
+using Microsoft.VisualStudio.TestPlatform.TestHost;
 using Ricardo.Technical.Test.Data;
+using Ricardo.Technical.Test.Pages.Components;
 
 namespace Ricardo.Application.Test
 {
     public class Tests
     {
         private  Inventory Inventory { get; set; }
+
+        private Products Products { get; set; }
+            
+        private Technical.Test.Pages.Components.Product Product { get; set; }
 
         private Basket Basket { get; set; }
 
@@ -13,6 +19,9 @@ namespace Ricardo.Application.Test
         {
             Inventory= new Inventory();
             Basket= new Basket();
+            Products= new Products();
+            Products.Goods = Inventory.AllStock();
+            Product = new Technical.Test.Pages.Components.Product();
         }
 
         [Test]
@@ -26,7 +35,12 @@ namespace Ricardo.Application.Test
         [Test]
         public void Can_Add_Items_To_Baset()
         {
-            Basket.AddToBasket()
+           var stocks= Products.Goods.ToList();
+
+            foreach (var stock in stocks)
+            {
+                
+            }
         }
     }
 }

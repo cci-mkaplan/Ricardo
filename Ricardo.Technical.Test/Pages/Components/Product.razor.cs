@@ -16,7 +16,7 @@ namespace Ricardo.Technical.Test.Pages.Components
 
         private readonly List<ToastMessage> _messages = new();
 
-        private void AddToBasket()
+        public void AddToBasket()
         {
             if (_quantity <= 0) return;
 
