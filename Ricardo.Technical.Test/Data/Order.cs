@@ -3,6 +3,8 @@
     public class Order
     {
 	    private readonly List<OrderItem> _items = new();
+
+        public List<OrderItem> OrderItem { get=> _items;}
         public int Total { get; }
         public Order(OrderItem[] items)
         {
