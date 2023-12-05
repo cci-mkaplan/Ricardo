@@ -6,7 +6,7 @@ namespace Ricardo.Technical.Test.Pages.Components
     public partial class Products
     {
         [Parameter] public IEnumerable<Stock> Goods { get; set; } = default!;
-        [CascadingParameter] protected Basket Basket { get; set; } = default!;
+        [CascadingParameter] public Basket Basket { get; set; } = default!;
         [Parameter] public EventCallback<Item> OnItemAdded { get; set; } = default!;
 
         public void AddToBasket(OrderItem orderItem)
