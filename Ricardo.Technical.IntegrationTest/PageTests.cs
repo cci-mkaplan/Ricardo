@@ -9,12 +9,12 @@ using Ricardo.Technical.Test.Utility;
 
 namespace Ricardo.Technical.IntegrationTest;
 
-public class ProductsPageTests : TestContext
+public class PageTests : TestContext
 {
     private Inventory? Inventory { get; set; }
     private Basket? Basket { get; set; }
 
-    public ProductsPageTests()
+    public PageTests()
     {
         InitialCommonConfig();
     }
@@ -30,7 +30,7 @@ public class ProductsPageTests : TestContext
         var cut = RenderComponent<Products>(parameters => parameters
                           .Add(p => p.OnItemAdded, addToBasketHandler)
                           .Add(p => p.Goods, Inventory.AllStock())
-                          .Add(p => p.Basket, Basket)
+                          .Add(p => p.Basket, Basket) //the reason that I make basket property from protected to public is to test it
                         );
 
         var paraElm = cut.Find("button");
