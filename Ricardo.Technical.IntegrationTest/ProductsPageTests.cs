@@ -15,8 +15,8 @@ namespace Ricardo.Technical.IntegrationTest;
 /// </summary>
 public class ProductsPageTests : TestContext
 {
-    private Inventory Inventory { get; set; }
-    private Basket Basket { get; set; }
+    private Inventory? Inventory { get; set; }
+    private Basket? Basket { get; set; }
 
     public ProductsPageTests()
     {
