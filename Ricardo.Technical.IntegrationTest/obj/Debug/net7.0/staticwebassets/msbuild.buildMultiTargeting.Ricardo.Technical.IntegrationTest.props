@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Ricardo.Technical.IntegrationTest.props" />
+</Project>
