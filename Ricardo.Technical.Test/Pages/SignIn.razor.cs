@@ -7,7 +7,7 @@ namespace Ricardo.Technical.Test.Pages
 	public partial class SignIn
 	{
 		[Inject] private CustomerService CustomerService { get; set; } = default!;
-		[Inject] private Navigation NavManager { get; set; } = default!;
+		[Inject] private INavigation NavManager { get; set; } = default!;
 		private string _username = default!;
 		private string _password = default!;
 

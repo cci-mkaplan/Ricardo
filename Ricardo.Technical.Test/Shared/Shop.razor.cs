@@ -5,12 +5,15 @@ namespace Ricardo.Technical.Test.Shared
 {
     public partial class Shop
     {
-	    private Basket Basket { get; set; } = default!;
+	    [Inject] private Basket Basket { get; set; } = default!;
         [Parameter] public RenderFragment? ChildContent { get; set; }
+
+
+
 
         protected override void OnInitialized()
         {
-	        Basket = new Basket();
+	       // Basket = new Basket();
 	        base.OnInitialized();
         }
     }

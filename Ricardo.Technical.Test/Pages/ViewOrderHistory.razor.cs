@@ -4,13 +4,12 @@ using Ricardo.Technical.Test.Utility;
 
 namespace Ricardo.Technical.Test.Pages
 {
-	public partial class ViewBasket
+	public partial class ViewOrderHistory
 	{
 		[Inject] private INavigation NavManager { get; set; } = default!;
-		[CascadingParameter] private Basket Basket { get; set; } = default!;
-		public void Checkout()
-		{
-			NavManager.NavigateTo("/checkout");
-		}
-	}
+
+		[Inject] private  ISessionManager? SessionManager { get; set; }= default!;
+
+		public Customer Customer => SessionManager.Customer;
+    }
 }

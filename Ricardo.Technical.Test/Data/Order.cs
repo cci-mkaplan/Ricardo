@@ -3,6 +3,8 @@
     public class Order
     {
 	    private readonly List<OrderItem> _items = new();
+
+        public List<OrderItem> OrderItem { get=> _items;}
         public int Total { get; }
         public Order(OrderItem[] items)
         {
@@ -12,6 +14,12 @@
         public static Order Create(Basket basket)
         {
             return new Order(basket.Items.ToArray());
+        }
+
+        public static List<Stock> GetStockByBasket(Basket basket)
+        {
+            var stocks= basket.Items.Select(p=> new Stock { Amount= p.Quantity, Item= p.Item}).ToList();
+            return stocks;
         }
     }
 }

@@ -18,7 +18,9 @@ namespace Ricardo.Technical.Test.Data
 
 		public void Withdraw(int amount)
 		{
-			Money -= amount;
+			if(Money - amount<0 )
+                throw new InsufficientFundsException("There is not enough money in your bank for this purchase!");
+            Money -= amount;
 		}
 
 		public static BankAccount Open(int money)

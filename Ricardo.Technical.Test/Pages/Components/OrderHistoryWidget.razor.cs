@@ -1,14 +1,16 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Ricardo.Technical.Test.Data;
 using Ricardo.Technical.Test.Utility;
+using System.Runtime.CompilerServices;
 
 namespace Ricardo.Technical.Test.Pages.Components
 {
-	public partial class BasketWidget
+	public partial class OrderHistoryWidget
 	{
 		[Inject] private INavigation NavManager { get; set; } = default!;
-		public void ViewBasket()
+		public void ViewOrderHistory()
 		{
-			NavManager.NavigateTo("/basket");
+			NavManager.NavigateTo("/orderHistory");
 		}
 	}
 }

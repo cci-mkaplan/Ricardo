@@ -1,19 +1,24 @@
-﻿namespace Ricardo.Technical.Test.Data
+﻿using Microsoft.AspNetCore.Components;
+
+namespace Ricardo.Technical.Test.Data
 {
 	public class OrderItem
 	{
-		public Item Item { get; }
-		public int Quantity { get; private set; }
+		//public Inventory Inventory { get; private set; }
+        public Stock Stock { get; }
+        public Item Item { get; }
+        public int Quantity { get; private set; }
 		public int Total => Item.Price * Quantity;
-		protected OrderItem(Item item, int quantity)
+        public OrderItem(Stock stock, int quantity)//, Inventory inventory)
 		{
-			Item = item;
+			Item = stock.Item;
 			Quantity = quantity;
-		}
+           // Inventory = inventory;
+        }
 
-		public static OrderItem Create(Item item, int quantity)
+		public static OrderItem Create(Stock stock, int quantity)
 		{
-			return new OrderItem(item, quantity);
+            return new OrderItem(stock, quantity);
 		}
 
 		public void AddMore(int quantity)

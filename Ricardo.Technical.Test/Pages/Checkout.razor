@@ -3,4 +3,8 @@
 
 <ViewBasket/>
 
-<button type="button" onclick="@PlaceOrder">Order now</button>
+<p>
+    <button type="button" class="Order" onclick="@PlaceOrder">Order now</button>
+</p>
+
+<Toasts class="p-3" Messages="@_messages" AutoHide="true" Delay="4000" Placement="ToastsPlacement.BottomRight" />

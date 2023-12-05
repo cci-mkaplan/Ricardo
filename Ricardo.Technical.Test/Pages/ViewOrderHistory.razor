@@ -1,0 +1,29 @@
+﻿@using Ricardo.Technical.Test.Pages.Components
+@page "/orderHistory"
+<h3>OrderHistory</h3>
+@*<BasketItems ></BasketItems>*@
+@if (SessionManager.Customer == default!)
+{
+    <p>You must sign in to see this page</p>
+}
+else
+{
+    <div>
+        <ul class="list-group">
+            @foreach (var order in Customer.OrderHistory)
+            {
+                <p>Order: @(Customer.OrderHistory.IndexOf(order) + 1)</p>
+                foreach (var orderItem in order.OrderItem)
+                {
+                    <li class="list-group-item">Item name: @orderItem.Item.Name</li>
+                    <li class="list-group-item">Item Quantity: @orderItem.Quantity</li>
+                    <li class="list-group-item">Item Purhase Price: @orderItem.Total</li>
+                    if (order.OrderItem.IndexOf(orderItem)+1 != order.OrderItem.Count)
+                    {
+                        <li class="list-group-item"> </li>
+                    } 
+                }
+            }
+        </ul>
+    </div>
+}
