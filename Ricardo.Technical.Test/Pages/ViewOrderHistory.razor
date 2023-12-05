@@ -18,7 +18,10 @@ else
                     <li class="list-group-item">Item name: @orderItem.Item.Name</li>
                     <li class="list-group-item">Item Quantity: @orderItem.Quantity</li>
                     <li class="list-group-item">Item Purhase Price: @orderItem.Total</li>
-                    <li class="list-group-item"> </li>
+                    if (order.OrderItem.IndexOf(orderItem)+1 != order.OrderItem.Count)
+                    {
+                        <li class="list-group-item"> </li>
+                    } 
                 }
             }
         </ul>
