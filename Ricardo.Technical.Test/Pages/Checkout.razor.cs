@@ -12,6 +12,8 @@ namespace Ricardo.Technical.Test.Pages
 		[Inject] private SessionManager SessionManager { get; set; } = default!;
 		[CascadingParameter] private Basket Basket { get; set; } = default!;
 
+        private object thisLock = new();
+
         private readonly List<ToastMessage> _messages = new();
 
         [Inject] private Inventory Inventory { get; set; } = default!;
@@ -25,31 +27,38 @@ namespace Ricardo.Technical.Test.Pages
 				return;
 			}
 
-			//should be transactional
+			//should be transactional cos stock moving can give an error anytime and we need to revert the payment. But that is unnecssary for now. 
 			var order = Order.Create(Basket);
           
 			try
-			{
+            {
                 customer.Pay(order);
                 var stocks = Order.GetStockByBasket(Basket);
-                foreach (var stock in stocks)
-                {
-                    Inventory.RemoveFromStock(stock);
-                }
 
+                lock (thisLock) // we have to lock the stock removing process cos too much  process will be reaching this and they have to see the same sycnronized stock.
+                {
+                    RemoveFromStock(stocks);
+                }
                 Basket.EmptyBasket();
                 customer.AddToOrderHistory(order);
             }
-			catch (InsufficientFundsException ex)
+            catch (InsufficientFundsException ex)
 			{
                 _messages.Add(new ToastMessage(ToastType.Danger, ex.Message));
 				return;
 			}
-            //should be transactional
+            //end of transaction transactional
 
             NavManager.NavigateTo("/orderConfirmed");
 		
 		}
 
-	}
+        private void RemoveFromStock(List<Stock> stocks)
+        {
+            foreach (var stock in stocks)
+            {
+                Inventory.RemoveFromStock(stock);
+            }
+        }
+    }
 }
