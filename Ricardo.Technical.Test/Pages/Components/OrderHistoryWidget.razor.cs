@@ -7,7 +7,7 @@ namespace Ricardo.Technical.Test.Pages.Components
 {
 	public partial class OrderHistoryWidget
 	{
-		[Inject] private Navigation NavManager { get; set; } = default!;
+		[Inject] private INavigation NavManager { get; set; } = default!;
 		public void ViewOrderHistory()
 		{
 			NavManager.NavigateTo("/orderHistory");

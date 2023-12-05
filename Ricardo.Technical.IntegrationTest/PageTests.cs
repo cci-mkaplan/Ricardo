@@ -43,6 +43,42 @@ public class PageTests : TestContext
         Assert.True(Basket.Items.Any());
     }
 
+    [Fact]
+    public void Can_Remove_Things_From_Basket()
+    {
+        Basket = new Basket();
+       
+        var stock = new Stock()
+        {
+            Amount = 100,
+            Item = new Item
+            {
+                Id = 1,
+                Image = string.Empty,
+                Name = "TestProducts",
+                Price = 100,
+                UnitType = UnitType.Piece
+            }
+        };
+
+        var orderItem = new OrderItem(stock,4);
+
+        Basket.AddToBasket(orderItem);
+
+        var cut = RenderComponent<BasketItems>(parameters => parameters
+                  .Add(p => p.OrderItem,orderItem)
+                  .Add(p => p.Basket, Basket)
+                );
+
+        var paraElm = cut.Find("button");
+
+        // Act
+        cut.Find("button").Click();
+
+        Assert.True(paraElm != null);
+        Assert.True(!Basket.Items.Any());
+    }
+
     private void InitialCommonConfig()
     {
         var configuration = new ConfigurationBuilder()
@@ -57,10 +93,25 @@ public class PageTests : TestContext
         Services.AddServerSideBlazor();
         Services.AddBlazorBootstrap();
         Services.AddSingleton<Inventory>();
-        Services.AddScoped<Navigation>();
+        Services.AddScoped<INavigation, MockNavigation>();
         Services.AddScoped<CustomerRepository>();
         Services.AddScoped<CustomerService>();
         Services.AddScoped<SessionManager>();
         Services.AddScoped<Basket>();
+    }
+
+    public class MockNavigation : INavigation
+    {
+        public bool CanNavigateBack => true;
+
+        public void NavigateBack()
+        {
+
+        }
+
+        public void NavigateTo(string url)
+        {
+
+        }
     }
 }

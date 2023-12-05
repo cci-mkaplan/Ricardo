@@ -6,7 +6,7 @@ namespace Ricardo.Technical.Test.Pages
 {
 	public partial class ViewOrderHistory
 	{
-		[Inject] private Navigation NavManager { get; set; } = default!;
+		[Inject] private INavigation NavManager { get; set; } = default!;
 
 		[Inject] private  SessionManager? SessionManager { get; set; }= default!;
 

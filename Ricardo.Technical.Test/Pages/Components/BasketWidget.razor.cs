@@ -5,7 +5,7 @@ namespace Ricardo.Technical.Test.Pages.Components
 {
 	public partial class BasketWidget
 	{
-		[Inject] private Navigation NavManager { get; set; } = default!;
+		[Inject] private INavigation NavManager { get; set; } = default!;
 		public void ViewBasket()
 		{
 			NavManager.NavigateTo("/basket");

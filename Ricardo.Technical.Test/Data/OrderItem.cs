@@ -9,7 +9,7 @@ namespace Ricardo.Technical.Test.Data
         public Item Item { get; }
         public int Quantity { get; private set; }
 		public int Total => Item.Price * Quantity;
-        protected OrderItem(Stock stock, int quantity)//, Inventory inventory)
+        public OrderItem(Stock stock, int quantity)//, Inventory inventory)
 		{
 			Item = stock.Item;
 			Quantity = quantity;

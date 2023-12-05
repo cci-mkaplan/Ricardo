@@ -8,7 +8,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddBlazorBootstrap();
 builder.Services.AddSingleton<Inventory>();
-builder.Services.AddScoped<Navigation>();
+builder.Services.AddScoped<INavigation,Navigation>();
 builder.Services.AddScoped<CustomerRepository>();
 builder.Services.AddScoped<CustomerService>();
 builder.Services.AddScoped<SessionManager>();
